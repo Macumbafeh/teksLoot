@@ -1,0 +1,14 @@
+tag 2.4.0.2-Beta
+5b17348f8a1f8d99e0ed0b3e193964bd5e5e8085
+Tekkub Stoutwrithe <tekkub@gmail.com>
+2008-03-28 13:58:33 -0600
+
+Weekly build
+
+
+--------------------
+
+Tekkub Stoutwrithe (2):
+      f29ab80: Add roll selection counts to roll buttons
+      d28ef9b: Updating TOC to 20400
+
