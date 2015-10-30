@@ -7,8 +7,23 @@ local backdrop = {
 }
 
 
+local autoRolls = {
+--	[itemId] = rollType,
+--	[itemId2] = rollType2,
+--	...
+}
+
+
 local function ClickRoll(frame)
 	frame.clicked = which
+
+	if IsControlKeyDown() then
+		local item = tonumber(frame.parent.button.link:match("item:(%d+)"))
+		if item then
+			autoRolls[item] = frame.rolltype
+		end
+	end
+
 	RollOnLoot(frame.parent.rollid, frame.rolltype)
 end
 
@@ -196,6 +211,12 @@ end
 
 
 local function START_LOOT_ROLL(rollid, time)
+	local item = tonumber(GetLootRollItemLink(rollid):match("item:(%d+)"))
+
+	if autoRolls[item] then
+		return RollOnLoot(rollid, autoRolls[item])
+	end
+
 	local f = GetFrame()
 	f.rollid = rollid
 	f.time = time
